@@ -1,6 +1,6 @@
 def NULL_not_found(object: any) -> int:
 	dict_err = {
-		None: "Nothing :",
+		type(None): "Nothing :",
 		float: "Cheese :",
 		int: "Zero :",
 		str: "Empty :",
