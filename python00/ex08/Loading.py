@@ -1,16 +1,28 @@
 def ft_tqdm(lst: range) -> None:
-    for i, elem in enumerate(lst):
-        progress = int(i) + 1
-        total = int(len(lst))
-        percent = int((progress / total) * 100)
-        bar_length = 98
-        progress_length = int(bar_length * progress // total)
+    """
+    Make a loading bar for more visual
 
-        bar = "█" * progress_length
-        bar = bar.ljust(bar_length, "=")
+    Args:
+        lst (range): the range wich be travaled
 
-        print(f"\r{percent}%|{bar}| {progress}/{total}", end="", flush=True)
-        yield elem
+    Returns:
+        None: This function does not return a value.
+    """
+    try:
+        for i, elem in enumerate(lst):
+            progr = int(i) + 1
+            total = int(len(lst))
+            percent = int((progr / total) * 100)
+            bar_length = 98
+            progr_length = int(bar_length * progr // total)
+
+            bar = "█" * progr_length
+            bar = bar.ljust(bar_length, "=")
+
+            print(f"\r{percent}%|{bar}| {progr}/{total}", end="", flush=True)
+            yield elem
+    except Exception as err:
+        print("Error ->", err)
 
 
 if __name__ == "__main__":
