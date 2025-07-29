@@ -5,6 +5,8 @@ import load_image as ld
 
 
 def ft_rotate():
+    """ Make zoom inside picture
+    """
     try:
         ld.ft_zoom("animal.jpeg")
         img = Image.open("animal.jpeg").convert("L")

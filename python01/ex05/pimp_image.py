@@ -5,6 +5,7 @@ import numpy as np
 
 
 def ft_invert(array) -> np.array:
+    """Inverts the color of the image received."""
     try:
         return array
     except Exception as err:
