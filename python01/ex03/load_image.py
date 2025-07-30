@@ -2,7 +2,7 @@ import PIL.Image as Image
 import numpy as np
 
 
-def ft_load(path: str) -> np.array:
+def ft_load(path: str) -> np.ndarray:
     """Loads an image from the given path, converts it to RGB format,
     prints its shape, and returns its pixel data as a NumPy array.
 
