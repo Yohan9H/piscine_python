@@ -7,6 +7,15 @@ file = "income_per_person_gdppercapita_ppp_inflation_adjusted.csv"
 
 
 def parse_number(arg: pd.Series) -> pd.Series:
+    """Convert numeric strings with 'k' or 'M' to floats.
+
+    Args:
+        arg (pd.Series): Series containing numeric
+        values as strings or numbers.
+
+    Returns:
+        pd.Series: Series with numeric values converted to floats.
+    """
     def parse_value(x):
         if isinstance(x, str):
             x = x.replace('k', 'e3').replace('M', 'e6')
@@ -16,6 +25,14 @@ def parse_number(arg: pd.Series) -> pd.Series:
 
 
 def projection_life() -> None:
+    """Plot GDP vs Life Expectancy for the year 1900.
+
+    Loads GDP and life expectancy data, merges them, and
+    displays a scatter plot with GDP on a log scale.
+
+    Returns:
+        None
+    """
     try:
         df_gdp = load.load(file)
         df_life = load.load("life_expectancy_years.csv")

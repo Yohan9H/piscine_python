@@ -4,10 +4,27 @@ import load_csv as load
 
 
 def parse_pop(arg):
+    """Convert population values from strings with 'M' to floats.
+
+    Args:
+        arg (pd.Series): Series containing population
+        values as strings (e.g., '20M').
+
+    Returns:
+        pd.Series: Series with population values as floats.
+    """
     return arg.str.replace('M', '').astype(float)
 
 
 def aff_pop() -> None:
+    """Plot population projections for France and Belgium.
+
+    Loads population data, processes values, and displays a line
+    chart comparing both countries.
+
+    Returns:
+        None
+    """
     try:
         df = load.load("population_total.csv")
         france_df = df[df["country"] == "France"]

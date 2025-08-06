@@ -3,6 +3,14 @@ import load_csv as load
 
 
 def aff_life() -> None:
+    """Plot France's life expectancy over time.
+
+    Loads data from a CSV file, filters for France, and
+    displays a line chart of life expectancy projections.
+
+    Returns:
+        None
+    """
     try:
         df = load.load("life_expectancy_years.csv")
         france_df = df[df["country"] == "France"]
